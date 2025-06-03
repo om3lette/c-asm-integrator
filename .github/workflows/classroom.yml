@@ -1,0 +1,75 @@
+name: Autograding Tests
+'on':
+  repository_dispatch: []
+  schedule:
+  - cron: '0 13 * * *'
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Answer
+      id: answer
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Answer
+        setup-command: sudo apt-get update && sudo apt-get install gcc-multilib nasm
+        command: make all && ./integral
+        timeout: 1
+    - name: Help
+      id: help
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Help
+        setup-command: ''
+        command: make all && ./integral --help
+        timeout: 1
+    - name: Test all
+      id: test-all
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test all
+        setup-command: ''
+        command: make test
+        timeout: 1
+    - name: Print roots
+      id: print-roots
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Print roots
+        setup-command: ''
+        command: make all && ./integral --root
+        timeout: 1
+    - name: Print iterations
+      id: print-iterations
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Print iterations
+        setup-command: ''
+        command: make all && ./integral --iterations
+        timeout: 1
+    - name: Short options
+      id: short-options
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Short options
+        setup-command: ''
+        command: make all && ./integral -h && ./integral -r && ./integral -i
+        timeout: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        ANSWER_RESULTS: "${{steps.answer.outputs.result}}"
+        HELP_RESULTS: "${{steps.help.outputs.result}}"
+        TEST-ALL_RESULTS: "${{steps.test-all.outputs.result}}"
+        PRINT-ROOTS_RESULTS: "${{steps.print-roots.outputs.result}}"
+        PRINT-ITERATIONS_RESULTS: "${{steps.print-iterations.outputs.result}}"
+        SHORT-OPTIONS_RESULTS: "${{steps.short-options.outputs.result}}"
+      with:
+        runners: answer,help,test-all,print-roots,print-iterations,short-options
