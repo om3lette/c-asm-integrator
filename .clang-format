@@ -1,0 +1,14 @@
+BasedOnStyle: LLVM
+BreakBeforeBraces: Attach
+
+IndentWidth: 2
+TabWidth: 2
+UseTab: Never
+AllowShortBlocksOnASingleLine: Empty
+AllowShortLoopsOnASingleLine: true
+ReflowComments: false
+ColumnLimit: 100
+
+AlignAfterOpenBracket: BlockIndent
+
+Language: C
