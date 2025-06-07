@@ -1,4 +1,11 @@
 BUILD
 .clangd
+
 integrate
+integrate_tests
+
 .tmp
+
+include/CUnit
+vendor/*
+!vendor/Makefile

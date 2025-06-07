@@ -1,0 +1,3 @@
+[submodule "vendor/CUnit"]
+	path = vendor/CUnit
+	url = https://github.com/jacklicn/CUnit

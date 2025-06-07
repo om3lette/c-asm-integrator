@@ -5,7 +5,7 @@
 #include <stdint.h>
 
 static const uint32_t START_FRAGMENTS_NUMBER = 10;
-static const uint32_t MAX_RUNGE_ITERATIONS = 20;
+static const uint32_t MAX_RUNGE_ITERATIONS = 25;
 
 struct res_iter_pair integral(afunc *F, double a, double b, double eps2);
 
