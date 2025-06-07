@@ -8,8 +8,8 @@
 struct res_iter_pair root(afunc *f, afunc *g, afunc *f_d, afunc *g_d, double a,
                           double b, double eps1);
 
-struct res_iter_pair divide_root(afunc *f, afunc *g, double a, double b,
-                                 double eps1);
+struct res_iter_pair bisection_root(afunc *f, afunc *g, double a, double b,
+                                    double eps1);
 
 struct res_iter_pair newton_root(afunc *f, afunc *g, afunc *f_d, afunc *g_d,
                                  double a, double b, double eps1);

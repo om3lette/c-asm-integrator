@@ -7,7 +7,7 @@
 #include "types.h"
 #include "utils.h"
 
-struct res_iter_pair divide_root(afunc *f, afunc *g, double a, double b, double eps1) {
+struct res_iter_pair bisection_root(afunc *f, afunc *g, double a, double b, double eps1) {
   for (uint32_t i = 0; i < MAX_ITER; ++i) {
     double c = (a + b) / 2;
     int c_sign = get_sign(func_sub(f, g, c));
