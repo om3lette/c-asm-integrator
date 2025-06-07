@@ -3,11 +3,11 @@
 #include <math.h>
 #include <stdint.h>
 
-#include "functions.h"
 #include "roots.h"
+#include "utils.h"
 
-double get_newton_starting_point(double (*f)(double), double (*f_d)(double), double a, double b) {
-  return f_d(a) * get_second_der_sign(f, a, b) > 0 ? b : a;
+static double get_starting_point(afunc *f, afunc *g, afunc *f_d, afunc *g_d, double a, double b) {
+  return get_der_mult_sign(f, g, f_d, g_d, a, b) ? b : a;
 }
 
 struct res_iter_pair
@@ -25,14 +25,11 @@ newton_root(afunc *f, afunc *g, afunc *f_d, afunc *g_d, double a, double b, doub
   //     if |new_x - x| < eps:
   //         return new_x
   //     x = new_x
-  double x = get_newton_starting_point(f, f_d, a, b);
-  static const uint32_t MAX_ITER = 100;
+  double x = get_starting_point(f, g, f_d, g_d, a, b);
 
-  struct res_iter_pair res;
-  res.res = NAN;
-  res.iter = -1;
+  struct res_iter_pair res = {NAN, -1};
 
-  for (uint32_t i = 0; i < MAX_ITER; i++) {
+  for (uint32_t i = 0; i < MAX_ITER; ++i) {
     double f_val_x = f(x) - g(x);
     double f_der_x = f_d(x) - g_d(x);
 

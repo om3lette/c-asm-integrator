@@ -1,7 +1,7 @@
 BUILD_PATH  ?= ../BUILD
 
 CC          := gcc
-CFLAGS      := -O3 -m32 -Wall -Wextra -pedantic -Wfloat-equal -std=c11 -I../include
+CFLAGS      := -O3 -m32 -Werror -Wall -Wextra -pedantic -Wfloat-equal -std=c11 -I../include -DROOT_METHOD=$(ROOT_METHOD)
 LDFLAGS     := -m32 -no-pie -z noexecstack
 LDFLAGS_END := -lm
 

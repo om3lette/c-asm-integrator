@@ -6,6 +6,8 @@ BUILD_PATH      := $(shell pwd)/BUILD
 INCLUDE_PATH    := $(shell pwd)/include
 TEST_EXECUTABLE := $(BUILD_PATH)/tests/integrate_tests
 
+ROOT_METHOD 	  ?= 3
+
 $(BUILD_PATH):
 	mkdir -p $(BUILD_PATH)
 
@@ -13,7 +15,7 @@ deps: $(BUILD_PATH)
 	INCLUDE_PATH=$(INCLUDE_PATH) BUILD_PATH=$(BUILD_PATH) $(MAKE) -C vendor
 
 build: $(BUILD_PATH)
-	BUILD_PATH=$(BUILD_PATH) $(MAKE) -C src
+	ROOT_METHOD=$(ROOT_METHOD) BUILD_PATH=$(BUILD_PATH) $(MAKE) -C src
 
 test: build_tests
 	$(TEST_EXECUTABLE)

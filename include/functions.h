@@ -8,7 +8,7 @@ double g(double x);
 double h(double x);
 
 double derivative(afunc *func, double x, double eps);
-int get_second_der_sign(afunc *f, double a, double b);
+int get_second_der_sign(afunc *f, afunc *g, double a, double b);
 
 double f_d(double x);
 double g_d(double x);

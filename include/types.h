@@ -5,6 +5,12 @@
 #include <stdint.h>
 
 typedef double afunc(double);
+typedef double funccomp(afunc, afunc, double); // Function composition
+
+struct errors {
+  double absolute;
+  double relative;
+};
 
 struct res_iter_pair {
   double res;
