@@ -20,8 +20,8 @@ Make is used to build the project. There are multiple implementations of the `ro
 | Method        | Macro value | Brief description                                                                |
 | ------------- | :---------: | -------------------------------------------------------------------------------- |
 | **Bisection** |      1      | Repeated halving of `[a,b]`                                                      |
-| **Newton**    |      2      | <code>x<sub>n</sub> = x<sub>n</sub> − H(x<sub>n</sub>)/H′(x<sub>n</sub>).</code> |
-| **Secant**    |      3      | Chord between `(a,H(a))` and `(b,H(b))`.                                         |
+| **Secant**    |      2      | Chord between `(a,H(a))` and `(b,H(b))`.                                         |
+| **Newton**    |      3      | <code>x<sub>n</sub> = x<sub>n</sub> − H(x<sub>n</sub>)/H′(x<sub>n</sub>).</code> |
 | **Combined**  |      4      | One Newton update + one Secant update per step                                   |
 
 Default value: 3
