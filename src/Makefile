@@ -9,7 +9,7 @@ AS			 := nasm
 AFLAGS	 := -f elf32
 
 SRC_PATH := $(BUILD_PATH)/src
-TARGET   := $(SRC_PATH)/integrate
+TARGET   := $(SRC_PATH)/integral
 
 SRC_C    := $(shell find . -name '*.c')
 SRC_ASM  := $(shell find ./functions/asm -name '*.asm')
