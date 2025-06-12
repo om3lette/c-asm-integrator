@@ -4,7 +4,7 @@ all: deps build build_tests
 
 BUILD_PATH      := $(shell pwd)/BUILD
 INCLUDE_PATH    := $(shell pwd)/include
-TEST_EXECUTABLE := $(BUILD_PATH)/tests/integrate_tests
+TEST_EXECUTABLE := $(BUILD_PATH)/tests/integral_tests
 
 ROOT_METHOD 	  ?= 3
 
@@ -12,6 +12,7 @@ $(BUILD_PATH):
 	mkdir -p $(BUILD_PATH)
 
 deps: $(BUILD_PATH)
+	git submodule update --init --recursive
 	INCLUDE_PATH=$(INCLUDE_PATH) BUILD_PATH=$(BUILD_PATH) $(MAKE) -C vendor
 
 build: $(BUILD_PATH)

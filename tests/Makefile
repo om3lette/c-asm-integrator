@@ -11,7 +11,7 @@ OBJ_TEST := $(patsubst %.c, $(BUILD_PATH)/tests/%.o, $(SRC_TEST))
 
 OBJ_IMPL := $(shell find $(BUILD_PATH)/src -name '*.o' -not -name 'main.o')
 
-TARGET ?= $(BUILD_PATH)/tests/integrate_test
+TARGET ?= $(BUILD_PATH)/tests/integral_tests
 
 all: $(TARGET)
 	cp $(TARGET) ../$(notdir $(TARGET))

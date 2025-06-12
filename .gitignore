@@ -2,7 +2,9 @@ BUILD
 .clangd
 
 integrate
+integral
 integrate_tests
+integral_tests
 
 .tmp
 
