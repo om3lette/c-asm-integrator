@@ -3,8 +3,8 @@
 
 #include "parsers.h"
 
-static char doc[] = "Command line tool for integrating and finding roots";
-static char args_doc[] = "";
+char doc[] = "Command line tool for integrating and finding roots";
+char args_doc[] = "";
 
 static struct argp_option options[] = {
     {"help", 'h', 0, 0, "Display this information", 0},

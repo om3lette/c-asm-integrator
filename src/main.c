@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
   argp_parse(&argp, argc, argv, 0, 0, &args);
 
   if (args.help) {
-    argp_help(&argp, stdout, ARGP_HELP_LONG, argv[0]);
+    argp_help(&argp, stdout, ARGP_HELP_LONG | ARGP_HELP_DOC, argv[0]);
     free_args(&args);
     return 0;
   }
