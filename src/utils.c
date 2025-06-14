@@ -37,13 +37,13 @@ struct errors get_calculation_errors(double answer, double expected_answer) {
   return errs;
 }
 
+double func_sub(afunc *f, afunc *g, double x) { return f(x) - g(x); }
+
 int get_der_mult_sign(afunc f, afunc g, afunc f_d, afunc g_d, double a, double b) {
-  if (f_d(a) - g_d(a) * get_second_der_sign(f, g, a, b) > 0) {
+  if (func_sub(f_d, g_d, a) * get_second_der_sign(f, g, a, b) > 0) {
     return 1;
   }
   return -1;
 }
-
-double func_sub(afunc *f, afunc *g, double x) { return f(x) - g(x); }
 
 int get_sign(double x) { return x > 0 ? 1 : -1; }

@@ -57,7 +57,7 @@ By default finds an area of a figure limited by predefined function in `src/func
 Outputs the answer, absolute error, relative error
 
 ```cmd
-./integrate
+./integral
 9.806945 -0.000000 -0.000000
 ```
 
@@ -84,7 +84,7 @@ Accepts a required argument `F1:F2:A:B:E:R`
 | <center>`R`</center>  | `double` | Expected answer       |
 
 ```cmd
-./integrate --test-root 2:3:-100.0:-0.01:0.001:-0.54951 -r -i
+./integral --test-root 2:3:-100.0:-0.01:0.001:-0.54951 -r -i
 -0.549510 -0.000000 0.000000
 Root: -0.549510
 Iterations: 10
@@ -107,7 +107,7 @@ Iterations: 10
 #### Example:
 
 ```cmd
-./integrate --test-integral 2:2.0:4.0:0.000000000001:4.0 -i
+./integral --test-integral 2:2.0:4.0:0.000000000001:4.0 -i
 4.000000 0.000000 0.000000
 Iterations (Runge): 2
 ```

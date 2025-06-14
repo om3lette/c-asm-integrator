@@ -3,7 +3,7 @@ CU_PATH := $(BUILD_PATH)/CUnit-build
 
 CC := gcc
 CFLAGS := -O3 -Wall -Wextra -pedantic -std=c11 -m32 -I../include -I$(CU_PATH)/include
-LDFLAGS := -m32 -no-pie -z noexecstack -L$(CU_PATH)/lib
+LDFLAGS := -m32 -no-pie -z noexecstack
 LDFLAGS_END := $(CU_PATH)/lib/libcunit.a -lm
 
 SRC_TEST := $(shell find . -name '*.c')
